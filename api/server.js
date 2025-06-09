@@ -75,6 +75,19 @@ server.put('/api/dogs/:id', async (req, res) => {
 });
 
 // [DELETE] /api/dogs/:id (D of CRUD, remove dog with :id)
+server.delete('/api/dogs/:id', async (req, res) => {
+    try{
+        const { id } = req.params;
+        const deletedDog = await Dog.delete(id);
+        if(!deletedDog) {
+            res.status(404).json({message: `No Dog with ID: ${id}`})
+        } else {
+            res.json({message: 'Dog deleted', data: deletedDog});
+        }
+    } catch(err) {
+        res.status(500).json({message: `${err.message} - Error deleting dog`})
+    }
+});
 
 // EXPOSING THE SERVER TO OTHER MODULES
 module.exports = server;
