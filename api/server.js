@@ -1,5 +1,5 @@
 // IMPORTS AT THE TOP
-import express from 'express';
+const express = require('express');
 // INSTANCE OF EXPRESS APP
 const server = express();
 // GLOBAL MIDDLEWARE
@@ -14,4 +14,4 @@ server.get('/', (req, res) => {
 // [DELETE] /api/dogs/:id (D of CRUD, remove dog with :id)
 });
 // EXPOSING THE SERVER TO OTHER MODULES
-export default server;
+module.exports = server

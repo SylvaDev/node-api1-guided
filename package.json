@@ -2,9 +2,12 @@
   "name": "api1-guided",
   "version": "1.0.0",
   "scripts": {
-    "test": "echo \"Hello World!\""
+    "server": "nodemon index.js"
   },
   "dependencies": {
     "express": "^5.1.0"
+  },
+  "devDependencies": {
+    "nodemon": "^3.1.10"
   }
 }
